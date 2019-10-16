@@ -1,0 +1,95 @@
+<html>
+<body>
+<script>
+    function getData() {
+        var text="Hello";
+        document.querySelector('#input_id').value = text;
+    }
+</script>
+<div class="jumbotron"  style="padding:40px;">
+    <h1>Hello!!!</h1>
+    <div>
+        <button type="submit" onclick="getData();">Call</button>
+        <input type="text" id="input_id">
+    </div>
+
+    <br><br><br>
+
+        <!-- *********************************** -->
+    <div>
+        <script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+
+        <script type="text/javascript">
+        function launchOneDrivePicker(){
+            var odOptions = {
+                clientId: "c7fff15f-5bfa-4ddc-ab9e-05b6a04987a2",
+                action: "download",
+                multiSelect: true,
+                advanced: {
+                    endpointHint: "api.onedrive.com",
+                    accessToken: "eyJ0eXAiOiJKV1QiLCJub25jZSI6Ik5rbnBZWW9sZUZfS0dCOUdrV2YwNXdkQ05RakE2STBud01oRnlSUV9nZ0UiLCJhbGciOiJSUzI1NiIsIng1dCI6ImFQY3R3X29kdlJPb0VOZzNWb09sSWgydGlFcyIsImtpZCI6ImFQY3R3X29kdlJPb0VOZzNWb09sSWgydGlFcyJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NjM5NGIyZS1jNWQwLTRhYmMtYmY4Ny05NzJhYWEzZjQzZDIvIiwiaWF0IjoxNTcxMjUzMzMxLCJuYmYiOjE1NzEyNTMzMzEsImV4cCI6MTU3MTI1NzIzMSwiYWlvIjoiNDJWZ1lIQmM5V3dSLzJITExZeHZKUTg1R3JBZUFnQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJOb2RlLmpzLVJlZ2lzdGVyLUxvZ2luLUFwcCIsImFwcGlkIjoiYzdmZmYxNWYtNWJmYS00ZGRjLWFiOWUtMDViNmEwNDk4N2EyIiwiYXBwaWRhY3IiOiIxIiwiaWRwIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNDYzOTRiMmUtYzVkMC00YWJjLWJmODctOTcyYWFhM2Y0M2QyLyIsInRpZCI6IjQ2Mzk0YjJlLWM1ZDAtNGFiYy1iZjg3LTk3MmFhYTNmNDNkMiIsInV0aSI6IkxqOVVlcnozTmtpRHJqN2FQSUkxQUEiLCJ2ZXIiOiIxLjAiLCJ4bXNfdGNkdCI6MTU3MTExNTc5N30.S297nkABQCrtIQT_WW2wFiaQ5ChRrgX8lpO4JomBvT3yCAFt0RV8X7E8wp-Ht0uPIe_CCv1mAjz_tIwfaF_p3Ci4WLojFOP3ayrYOYsrg55zkhgXeaQUBb5VT4yoGFHfMpCNjeQXtT16pI-SBenPkS9KUdREmQBpxj8LUkN3s_eN_FdKQC_h01yisi-330UhNuBCqz0ytRouasPC-SF9FhNGtS2qpT0M55VJSGqiL0Vo5UE9iJsZwBSjLYbdPLXc-hQN25F3JSjgS2iqKdXraiyfBxysC6zwtpkntHxUcPSNX6c67prCjjmcYi1XRAlbjT2803Y_nNMdnTCmgktkbQ",
+                },
+                success: function(files) { /* success handler */ },
+                cancel: function() { /* cancel handler */ },
+                error: function(error) { /* error handler */ }
+                }
+
+            // var odOptions = {
+            //     clientId: "c7fff15f-5bfa-4ddc-ab9e-05b6a04987a2",
+            //     action: "download",
+            //     advanced: {
+            //         navigation: {
+            //         entryLocation: {
+            //             sharePoint: {
+            //             sitePath: "THE-SITE-PATH",
+            //             listPath: "THE-LIST-PATH",
+            //             itemPath: "THE-ITEM-PATH"
+            //             }
+            //         },
+            //         sourceTypes: ["Sites", "OneDrive"] /* or an array like ["OneDrive", "Sites"] */
+            //         }
+            //     },
+            //     success: function(files) { /* success handler */ },
+            //     cancel: function() { /* cancel handler */ },
+            //     error: function(error) { /* error handler */ },
+            // }
+            OneDrive.open(odOptions);
+        }
+        </script>
+        <button onClick="launchOneDrivePicker()">Open from OneDrive</button>
+        <br><br>
+
+        <script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+        <script type="text/javascript">
+            function launchSaveToOneDrive(){
+                var odOptions = {
+                    clientId: "c7fff15f-5bfa-4ddc-ab9e-05b6a04987a2",
+                    action: "save",
+                    sourceInputElementId: "fileUploadControl",
+                    sourceUri: "",
+                    fileName: "file.txt",
+                    openInNewWindow: true,
+                    advanced: {
+                        redirectUri: "api.onedrive.com",
+                    },
+                    success: function(files) { /* success handler */ },
+                    progress: function(percent) { /* progress handler */ },
+                    cancel: function() { /* cancel handler */ },
+                    error: function(error) { /* error handler */ }
+                    }
+              OneDrive.save(odOptions);
+            }
+          </script>
+          
+          <input id="fileUploadControl" name="fileUploadControl" type="file" />
+          <button onclick="launchSaveToOneDrive">Save to OneDrive</button>
+    </div>
+
+
+    <div>
+
+    </div>
+</div>
+</div>
+</body>
+</html>
